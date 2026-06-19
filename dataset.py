@@ -2,5 +2,9 @@ from pathlib import Path
 import kagglehub
 
 DATASET="hammadus/yugioh-full-card-database-index-august-1st-2025"
+DATA_DIR= Path("data/raw")
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+download_path = kagglehub.dataset_download(DATASET, output_dir=str(DATA_DIR))
 
 print("Path to dataset files:", DATASET)
