@@ -1,8 +1,11 @@
+import sys
 from sklearn.model_selection import train_test_split
 from pathlib import Path
 import pandas as pd
+import pandas.core.series as Series
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from tokenizer import CARD_START, CARD_END
-
+import json
 
 DATASET ="hammadus/yugioh-full-card-database-index-august-1st-2025"
 DATA_DIR = Path("data")
@@ -11,7 +14,7 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed" / "yugioh" / "v001"
 VAL_SIZE= 0.1
 
 dataset_paths = sorted(
-    RAW_DATA_DIR.glob("csv"), key=lambda p: p.stat().st_mtime, reverse=True
+    RAW_DATA_DIR.glob("*.csv"), key=lambda p: p.stat().st_mtime, reverse=True
 )
 
 dataset_path = dataset_paths[0]
@@ -19,7 +22,7 @@ dataset_path = dataset_paths[0]
 dataset = pd.read_csv(dataset_path)
 dataset = dataset.drop_duplicates(subset="name")
 train_df, val_df = train_test_split(dataset, random_state=42, test_size=VAL_SIZE)
-PROCESSED_DATA_DIR.mkdir(Parents=True, exists_ok=True)
+PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def clear_rarity(rarity: str):
@@ -34,7 +37,7 @@ def serialize_card(card_row: Series):
     card_fields = [
         ("name", card_name),
         ("rarity", clear_rarity(card_row["rarity"])),
-        ("type", card_row["type"])
+        ("type", card_row["type"]),
         ("sub_type", card_row["attribute"]),
         ("rank", card_row["rank"]),
         ("attack", card_row["attack"]),
@@ -65,4 +68,26 @@ with open(PROCESSED_DATA_DIR / "all.txt", "w") as dataset_f:
                 n_train_set += 1
                 card_set.add(card_name) 
     with open(PROCESSED_DATA_DIR / "val.txt", "w") as val_f:
-        for _, row in val_df.iterrows(): 
+        for _, row in val_df.iterrows():  
+            card_name, formatted = serialize_card(row)
+            if card_name not in card_set:
+                dataset_f.write(formatted)
+                val_f.write(formatted)
+                n_val_set += 1 
+                card_set.add(card_name)
+
+with open(PROCESSED_DATA_DIR / "metadata.json", "w") as metadata_f:
+    json.dump(
+        {
+            "source": str(dataset_path),
+            "val_size": VAL_SIZE,
+            "n_train_cards": n_train_set,
+            "n_val_cards": n_val_set,
+        },
+        metadata_f,
+        indent=2
+    )
+
+print(f"Wrote {n_val_set + n_train_set} cards to {str(PROCESSED_DATA_DIR) / 'all.txt' }")
+print(f"Wrote {n_train_set} cards to {str(PROCESSED_DATA_DIR) / 'train.txt'}")
+print(f"Wrote {n_val_set} cards to {str(PROCESSED_DATA_DIR) / 'val.txt'}")

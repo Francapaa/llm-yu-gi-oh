@@ -1,0 +1,115 @@
+<card>
+name: new world formation
+rarity: common
+type: trap
+description: target 1 spell/trap in your gy that mentions "visas starfrost"; set it, and if you set a trap or quick-play spell, it can be activated this turn. you can banish this card from your gy, then target 3 spells/traps in your gy that mention "visas starfrost", except "new world formation"; shuffle them into the deck. you can only use each effect of "new world formation" once per turn.
+</card>
+
+<card>
+name: super strident blaze
+rarity: common
+type: spell
+description: equip only to a machine fusion monster. your opponent cannot activate cards or effects during your battle phase. at the end of the damage step, if the equipped monster attacked an opponent's monster: you can banish 1 "cyber dragon" monster from your gy; the equipped monster can attack an opponent's monster again in a row. your other monsters cannot attack the turn you activate this effect.
+</card>
+
+<card>
+name: gorgonic gargoyle
+rarity: common
+type: monster
+sub_type: dark
+rank: level 3
+attack: 1000
+defense: 800
+description: when you normal summon a rock-type monster: you can special summon this card from your hand.
+</card>
+
+<card>
+name: onomatopia
+rarity: ultra rare
+type: spell
+description: each time a "utopia" monster(s) is special summoned to your field, place 1 hi-five the sky counter on this card. monsters you control gain 200 atk/def for each hi-five the sky counter on this card. once per turn: you can remove 2 hi-five the sky counters from this card; special summon 1 "zubaba", "gagaga", "gogogo", or "dododo" monster from your deck.
+</card>
+
+<card>
+name: guardragon shield
+rarity: common
+type: spell
+description: you can target 1 dragon monster you control; it gains atk/def equal to the total link rating of the link monsters currently on the field x 100, until the end of the opponent's turn. you can only use this effect of "guardragon shield" once per turn. once per turn, if exactly 1 dragon monster you control would be destroyed by battle or card effect, you can send 1 normal monster from your hand or deck to the gy instead.
+</card>
+
+<card>
+name: synchron carrier
+rarity: common
+type: monster
+sub_type: earth
+rank: level 2
+attack: 0
+defense: 1000
+description: during your main phase, you can normal summon 1 "synchron" monster in addition to your normal summon/set. (you can only gain this effect once per turn.) if another "synchron" monster is sent to your gy as material for the synchro summon of a warrior or machine synchro monster, while you control this card: you can special summon 1 "synchron token" (machine/earth/level 2/atk 1000/def 0). you can only use this effect of "synchron carrier" once per turn.
+</card>
+
+<card>
+name: silent burning
+rarity: super rare
+type: spell
+description: during the battle phase, if you control a "silent magician" monster, and have more cards in your hand than your opponent: each player draws until they have 6 cards in their hand. this card's activation and effect cannot be negated. you can banish this card from your graveyard; add 1 "silent magician" monster from your deck to your hand.
+</card>
+
+<card>
+name: fusion recovery
+rarity: common
+type: spell
+description: target 1 "polymerization" in your gy, and 1 monster in your gy that was used as material for a fusion summon; add them to your hand.
+</card>
+
+<card>
+name: donpa, marksman fur hire
+rarity: common
+type: monster
+sub_type: wind
+rank: level 2
+attack: 500
+defense: 1000
+description: during your main phase: you can special summon 1 monster "fur hire" from your hand, except "donpa, marksman fur hire". if a monster "fur hire" is special summoned to your field while you control this monster (except during the damage step): you can target 1 face-up card on the field; destroy it. you can only use each effect of "donpa, marksman fur hire" once per turn.
+</card>
+
+<card>
+name: battleguard king
+rarity: common
+type: monster
+sub_type: earth
+rank: level 8
+attack: 3000
+defense: 1100
+description: once per turn: you can tribute any number of warrior-type monsters, except this card; for each tributed monster, this card gains 1 additional attack during each battle phase this turn.
+</card>
+
+<card>
+name: caligo claw crow
+rarity: common
+type: monster
+sub_type: dark
+rank: level 2
+attack: 900
+defense: 600
+description: if you control a dark monster, you can special summon this card (from your hand). you can only special summon "caligo claw crow" once per turn this way.
+</card>
+
+<card>
+name: final flame
+rarity: rare
+type: spell
+description: inflict 600 points of damage to your opponent's life points.
+</card>
+
+<card>
+name: crimson sentry
+rarity: common
+type: monster
+sub_type: fire
+rank: level 4
+attack: 1500
+defense: 1200
+description: offer this face-up card as a tribute to return 1 of your monsters destroyed in battle during this turn to the bottom of your deck.
+</card>
+
