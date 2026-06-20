@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from tokenizer import CARD_START, CARD_END
 import json
 
+
 DATASET ="hammadus/yugioh-full-card-database-index-august-1st-2025"
 DATA_DIR = Path("data")
 RAW_DATA_DIR = DATA_DIR / "raw"
@@ -58,8 +59,8 @@ card_set = set()
 n_val_set = 0 
 n_train_set = 0
 
-with open(PROCESSED_DATA_DIR / "all.txt", "w") as dataset_f:
-    with open(PROCESSED_DATA_DIR / "train.txt", "w") as train_f:
+with open(PROCESSED_DATA_DIR / "all.txt", "w", encoding="utf-8") as dataset_f:
+    with open(PROCESSED_DATA_DIR / "train.txt", "w", encoding="utf-8") as train_f:
         for _, row in train_df.iterrows():
             card_name, formatted = serialize_card(row)
             if card_name not in card_set:
@@ -67,7 +68,7 @@ with open(PROCESSED_DATA_DIR / "all.txt", "w") as dataset_f:
                 train_f.write(formatted)
                 n_train_set += 1
                 card_set.add(card_name) 
-    with open(PROCESSED_DATA_DIR / "val.txt", "w") as val_f:
+    with open(PROCESSED_DATA_DIR / "val.txt", "w", encoding="utf-8") as val_f:
         for _, row in val_df.iterrows():  
             card_name, formatted = serialize_card(row)
             if card_name not in card_set:
@@ -76,7 +77,7 @@ with open(PROCESSED_DATA_DIR / "all.txt", "w") as dataset_f:
                 n_val_set += 1 
                 card_set.add(card_name)
 
-with open(PROCESSED_DATA_DIR / "metadata.json", "w") as metadata_f:
+with open(PROCESSED_DATA_DIR / "metadata.json", "w", encoding="utf-8") as metadata_f:
     json.dump(
         {
             "source": str(dataset_path),
@@ -88,6 +89,6 @@ with open(PROCESSED_DATA_DIR / "metadata.json", "w") as metadata_f:
         indent=2
     )
 
-print(f"Wrote {n_val_set + n_train_set} cards to {str(PROCESSED_DATA_DIR) / 'all.txt' }")
-print(f"Wrote {n_train_set} cards to {str(PROCESSED_DATA_DIR) / 'train.txt'}")
-print(f"Wrote {n_val_set} cards to {str(PROCESSED_DATA_DIR) / 'val.txt'}")
+print(f"Wrote {n_val_set + n_train_set} cards to {PROCESSED_DATA_DIR / 'all.txt' }")
+print(f"Wrote {n_train_set} cards to {PROCESSED_DATA_DIR / 'train.txt'}")
+print(f"Wrote {n_val_set} cards to {PROCESSED_DATA_DIR / 'val.txt'}")
