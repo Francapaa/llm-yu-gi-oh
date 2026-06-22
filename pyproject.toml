@@ -3,9 +3,12 @@ name = "llm-yu-gi-oh"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.11,<3.13"
 dependencies = [
     "kagglehub",
     "pandas>=3.0.3",
     "scikit-learn>=1.9.0",
+    "torch>=2.4.1",
+    "torch-directml>=0.2.5.dev240914",
+    "torchvision>=0.19.1",
 ]
