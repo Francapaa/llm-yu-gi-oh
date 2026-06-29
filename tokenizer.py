@@ -10,7 +10,7 @@ from tokenizers import models, pre_tokenizers, trainers, processors, decoders
 CARD_START = "<card>"
 CARD_END = "</card>"
 
-
+#we created bpe
 
 class TokenizerType(enum.Enum): 
    CHAR = "char"
